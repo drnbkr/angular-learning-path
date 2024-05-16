@@ -1,1 +1,2 @@
-<p class="text-center font-bold">The Server Component</p>
+<p class="text-center font-bold">The Server with ID <span [ngClass]="{'text-green-500': serverStatus === 'online', 'text-red-500': serverStatus === 'offline'}">{{ serverId }}</span> is <span
+        [ngStyle]="{'color': getColor()}">{{ getServerStatus() }}</span></p>

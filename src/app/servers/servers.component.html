@@ -1,3 +1,29 @@
 <p class="text-center font-bold bg-green-200 ">servers works!</p>
-<app-server></app-server>
-<app-server></app-server>
+<div class="text-center m-6">
+    <label for="">Server Name</label>
+    <!-- <input type="text" class="form-input  px-4 py-3 outline border-solid rounded-full" (input)="onUpdateServreName($event)"> -->
+    <input type="text" class="form-input  px-4 py-3 outline border-solid rounded-full" [(ngModel)]="serverName">
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <label for="">User Name</label>
+    <input type="text" class="form-input  px-4 py-3 outline border-solid rounded-full" [(ngModel)]="userName">
+
+    <p *ngIf="serverCreated; else noServer">{{serverName}}</p>
+    <ng-template #noServer>
+
+        <p>no  name yet</p>
+    </ng-template>
+    
+    <br>
+    <hr>
+    <br>
+
+    <button (click)="onCreateServer()" type="button" [class]="class" [disabled]="!allowNewServer || userName===''">Add Server</button>
+    <p>{{ serverCreationStatus }}</p>
+
+
+</div>
+<app-server   *ngFor="let item of servers"></app-server>
